@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Make memes</title>
+    <link rel="stylesheet" href="memes.css"/>
+</head>
+<body>
+    
+<div>
+    <h2>Make your own memes</h2>
+</div>
+<form action="#">
+    <div>
+        <label for="image">Image URL: </label>
+        <input type="url" id="imageURL">
+    </div>
+    <div>
+        <label for="top">Texts on top: </label>
+        <input type="text" id="toptext">
+    </div>
+    <div>
+        <label for="bottom">Texts on bottom: </label>
+        <input type="text" id="bottomtext">
+    </div>
+    <div>
+        <button id="generate" class="button" type="submit" value="CREATE">Generate Meme</button>
+    </div>
+    <div>
+    <button onclick="reload()" id="remove" class = "removebutton" type="reset" value="REMOVE">Remove</button>
+    <script>
+        function reload(){
+            location.reload();
+        }
+    </script>
+    </div>
+</form>
+<div id="box"></div>
+<script src="memes.js"></script>
+</body>
+</html>

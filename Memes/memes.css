@@ -1,0 +1,17 @@
+.memesbox1 {
+    position: relative;
+}
+.top-text, .bottom-text{
+    text-shadow: 2px 2px #ff0000;
+    position: absolute;
+}
+.top-text{
+    top: 0;
+}
+.bottom-text{
+    bottom: 0;
+}
+.top-text h1,
+.bottom-text h1{
+    font-weight: 700;
+}
