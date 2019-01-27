@@ -6,15 +6,11 @@ let firstCard, secondCard;
 
 let lock = false;
 
-for(var i=0; i<cards.length;i++){
-    cards[i].addEventListener("click", cardOpen);
+for(var j=0; j<cards.length;j++){
+    cards[j].addEventListener("click", cardOpen);
 }
 
 function cardOpen(){
-    console.log('chengsi')
-    console.log(lock)
-    console.log(this)
-    console.log(firstCard)
     if (lock) return;
     if(this === firstCard) return;
 
@@ -23,15 +19,14 @@ function cardOpen(){
     if(!hasFlippedCard){ 
         hasFlippedCard = true;
         firstCard = this;
-        console.log(this)
         return;
     }
-    secondCard = this;
+    else secondCard = this;
     checkMatch();
 }
 
 function checkMatch(){
-    if(firstCard.src === secondCard.src){
+    if(firstCard.dataset.num === secondCard.dataset.num){
         disableCards();
     } else{
         unflipCards();
@@ -41,17 +36,21 @@ function checkMatch(){
 function unflipCards(){
     lock = true;
 
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
-
-    resetBoard();
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+    
+        resetBoard();
+    }, 500);
 }
 
 function disableCards(){
-    this.removeEventListener('click', cardOpen);
-    this.removeEventListener('click', cardOpen);
-
-    resetBoard();
+    firstCard.removeEventListener('click', cardOpen);
+    secondCard.removeEventListener('click', cardOpen);
+    hasFlippedCard = false;
+    lock = false;
+    firstCard = null;
+    secondCard = null;
 }
 
 function resetBoard(){
@@ -59,9 +58,8 @@ function resetBoard(){
     [firstCard, secondCard] = [null,null];
 }
 
-function shuffle(){
-    for(var i=0;i<cards.length; i++){
-        let randomPos = Math.floor(Math.random()*24);
-        card[i].style.order = randomPos;
+(function shuffle(){
+    for (var i = 0; i< cards.length; i++){
+        cards[i].style.order = Math.floor(Math.random() * 24);
     }
-}
+})();

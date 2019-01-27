@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="MemoryGame.css">
 </head>
 <body>
-        <div id="countNum">
-                <span>Count: </span>
-        </div>
         <div class="button" id="resetbtn">
-                <button onclick="reset()" class="button" id="resetbutton">Start Over</button>
+                <button onclick="reload()" class="button" id="resetbutton" type="reset">Start Over</button>
+                        <script>
+                            function reload(){
+                                location.reload();
+                            }
+                        </script>
         </div>
     <section class="gameboard">
         <div class="card" data-num="1">
