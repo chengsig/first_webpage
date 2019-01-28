@@ -1,6 +1,4 @@
 var cards = document.getElementsByClassName("card")
-console.log(cards)
-
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
@@ -20,15 +18,17 @@ function cardOpen(){
         hasFlippedCard = true;
         firstCard = this;
         return;
+    }else{
+        secondCard = this;
+        checkMatch();
     }
-    else secondCard = this;
-    checkMatch();
+    
 }
 
 function checkMatch(){
     if(firstCard.dataset.num === secondCard.dataset.num){
         disableCards();
-    } else{
+    }else{
         unflipCards();
     }
 }
@@ -54,8 +54,10 @@ function disableCards(){
 }
 
 function resetBoard(){
-    [hasFlippedCard, lock] = [false, false];
-    [firstCard, secondCard] = [null,null];
+    hasFlippedCard = false;
+    lock = false;
+    firstCard = null;
+    secondCard = null;
 }
 
 (function shuffle(){
