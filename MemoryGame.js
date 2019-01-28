@@ -26,7 +26,7 @@ function cardOpen(){
 }
 
 function checkMatch(){
-    if(firstCard.dataset.num != secondCard.dataset.num){
+    if(firstCard.dataset.num === secondCard.dataset.num){
         disableCards();
     }else{
         unflipCards();
