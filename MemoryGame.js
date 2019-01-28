@@ -26,11 +26,11 @@ function cardOpen(){
 }
 
 function checkMatch(){
-   // if(firstCard.dataset.num === secondCard.dataset.num){
-   //     disableCards();
-   // }else{
-   //     unflipCards();
-   // }
+    if(firstCard.dataset.num === secondCard.dataset.num){
+        disableCards();
+    }else{
+        unflipCards();
+    }
 }
 
 function unflipCards(){
